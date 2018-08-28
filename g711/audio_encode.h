@@ -1,29 +1,29 @@
 /*
-This program is distributed under the terms of the 'MIT license'. The text
-of this licence follows...
+   This program is distributed under the terms of the 'MIT license'. The text
+   of this licence follows...
 
-Copyright (c) 2004 J.D.Medhurst (a.k.a. Tixy)
+   Copyright (c) 2004 J.D.Medhurst (a.k.a. Tixy)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+   Permission is hereby granted, free of charge, to any person obtaining a copy
+   of this software and associated documentation files (the "Software"), to deal
+   in the Software without restriction, including without limitation the rights
+   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+   copies of the Software, and to permit persons to whom the Software is
+   furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-*/
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+   THE SOFTWARE.
+   */
 
- 
+
 #ifndef __AUDIOENCODE_H__
 #define __AUDIOENCODE_H__
 
@@ -120,14 +120,14 @@ typedef unsigned long long ulonglong;
 
 
 /**
-@defgroup integers Common - Basic Integer Types.
+  @defgroup integers Common - Basic Integer Types.
 
-These definitions will need to be modified on systems where 'char', 'short' and 'int'
-have sizes different from 8, 16 and 32 bits.
+  These definitions will need to be modified on systems where 'char', 'short' and 'int'
+  have sizes different from 8, 16 and 32 bits.
 
-Note, 'int' is assumed to be in 2s complement format and at least 32 bits in size.
-@{
-*/
+  Note, 'int' is assumed to be in 2s complement format and at least 32 bits in size.
+  @{
+  */
 typedef unsigned char		uint8_t;		/**< An 8 bit unsigned integer */
 typedef unsigned short		uint16_t;		/**< An 16 bit unsigned integer */
 typedef unsigned int		uint32_t;		/**< An 32 bit unsigned integer */
@@ -150,31 +150,31 @@ typedef signed int			int32_t;		/**< An 32 bit signed integer (2s complement) */
 
 
 /**
-Number of bits in an int.
-*/
+  Number of bits in an int.
+  */
 #define INT_BITS (sizeof(int)*8)
 
 
 /**
-Return log2(x) rounded up to the nearest integer.
-@param x An unsigned integer which must be less than 2^32.
-*/
+  Return log2(x) rounded up to the nearest integer.
+  @param x An unsigned integer which must be less than 2^32.
+  */
 #define LOG2(x)	((unsigned)(\
-	(unsigned)(x)<=(unsigned)(1<< 0) ?  0 : (unsigned)(x)<=(unsigned)(1<< 1) ?  1 : (unsigned)(x)<=(unsigned)(1<< 2) ?  2 : (unsigned)(x)<=(unsigned)(1<< 3) ?  3 : \
-	(unsigned)(x)<=(unsigned)(1<< 4) ?  4 : (unsigned)(x)<=(unsigned)(1<< 5) ?  5 : (unsigned)(x)<=(unsigned)(1<< 6) ?  6 : (unsigned)(x)<=(unsigned)(1<< 7) ?  7 : \
-	(unsigned)(x)<=(unsigned)(1<< 8) ?  8 : (unsigned)(x)<=(unsigned)(1<< 9) ?  9 : (unsigned)(x)<=(unsigned)(1<<10) ? 10 : (unsigned)(x)<=(unsigned)(1<<11) ? 11 : \
-	(unsigned)(x)<=(unsigned)(1<<12) ? 12 : (unsigned)(x)<=(unsigned)(1<<13) ? 13 : (unsigned)(x)<=(unsigned)(1<<14) ? 14 : (unsigned)(x)<=(unsigned)(1<<15) ? 15 : \
-	(unsigned)(x)<=(unsigned)(1<<16) ? 16 : (unsigned)(x)<=(unsigned)(1<<17) ? 17 : (unsigned)(x)<=(unsigned)(1<<18) ? 18 : (unsigned)(x)<=(unsigned)(1<<19) ? 19 : \
-	(unsigned)(x)<=(unsigned)(1<<20) ? 20 : (unsigned)(x)<=(unsigned)(1<<21) ? 21 : (unsigned)(x)<=(unsigned)(1<<22) ? 22 : (unsigned)(x)<=(unsigned)(1<<23) ? 23 : \
-	(unsigned)(x)<=(unsigned)(1<<24) ? 24 : (unsigned)(x)<=(unsigned)(1<<25) ? 25 : (unsigned)(x)<=(unsigned)(1<<26) ? 26 : (unsigned)(x)<=(unsigned)(1<<27) ? 27 : \
-	(unsigned)(x)<=(unsigned)(1<<28) ? 28 : (unsigned)(x)<=(unsigned)(1<<29) ? 29 : (unsigned)(x)<=(unsigned)(1<<30) ? 30 : (unsigned)(x)<=(unsigned)(1<<31) ? 31 : \
-	32))
+            (unsigned)(x)<=(unsigned)(1<< 0) ?  0 : (unsigned)(x)<=(unsigned)(1<< 1) ?  1 : (unsigned)(x)<=(unsigned)(1<< 2) ?  2 : (unsigned)(x)<=(unsigned)(1<< 3) ?  3 : \
+            (unsigned)(x)<=(unsigned)(1<< 4) ?  4 : (unsigned)(x)<=(unsigned)(1<< 5) ?  5 : (unsigned)(x)<=(unsigned)(1<< 6) ?  6 : (unsigned)(x)<=(unsigned)(1<< 7) ?  7 : \
+            (unsigned)(x)<=(unsigned)(1<< 8) ?  8 : (unsigned)(x)<=(unsigned)(1<< 9) ?  9 : (unsigned)(x)<=(unsigned)(1<<10) ? 10 : (unsigned)(x)<=(unsigned)(1<<11) ? 11 : \
+            (unsigned)(x)<=(unsigned)(1<<12) ? 12 : (unsigned)(x)<=(unsigned)(1<<13) ? 13 : (unsigned)(x)<=(unsigned)(1<<14) ? 14 : (unsigned)(x)<=(unsigned)(1<<15) ? 15 : \
+            (unsigned)(x)<=(unsigned)(1<<16) ? 16 : (unsigned)(x)<=(unsigned)(1<<17) ? 17 : (unsigned)(x)<=(unsigned)(1<<18) ? 18 : (unsigned)(x)<=(unsigned)(1<<19) ? 19 : \
+            (unsigned)(x)<=(unsigned)(1<<20) ? 20 : (unsigned)(x)<=(unsigned)(1<<21) ? 21 : (unsigned)(x)<=(unsigned)(1<<22) ? 22 : (unsigned)(x)<=(unsigned)(1<<23) ? 23 : \
+            (unsigned)(x)<=(unsigned)(1<<24) ? 24 : (unsigned)(x)<=(unsigned)(1<<25) ? 25 : (unsigned)(x)<=(unsigned)(1<<26) ? 26 : (unsigned)(x)<=(unsigned)(1<<27) ? 27 : \
+            (unsigned)(x)<=(unsigned)(1<<28) ? 28 : (unsigned)(x)<=(unsigned)(1<<29) ? 29 : (unsigned)(x)<=(unsigned)(1<<30) ? 30 : (unsigned)(x)<=(unsigned)(1<<31) ? 31 : \
+            32))
 
 #if 0
 #if __GNUC__<4
 /**
-Calculate address offset of member within a type.
-*/
+  Calculate address offset of member within a type.
+  */
 #define offsetof(type,member)	((size_t)(&((type*)256)->member)-256)
 #else
 #define offsetof(type,member)	__builtin_offsetof(type,member)
@@ -185,8 +185,8 @@ Calculate address offset of member within a type.
 #if defined(__GNUC__) && defined(_ARM)
 
 /**
-Used to GCC "warning: control reaches end of non-void function" in __naked__ functions.
-*/
+  Used to GCC "warning: control reaches end of non-void function" in __naked__ functions.
+  */
 #define dummy_return(type) register type _r0 asm("r0"); asm("" : "=r"(_r0)); return _r0
 
 #endif
@@ -195,14 +195,14 @@ Used to GCC "warning: control reaches end of non-void function" in __naked__ fun
 #ifndef COMPILE_FOR_SYMBIAN
 
 /**
-Global placement new operator for constructing an object at a specified address.
-*/
+  Global placement new operator for constructing an object at a specified address.
+  */
 //inline void* operator new(size_t, void* ptr) throw()
 //	{ return ptr; }
 
 /**
-Global placement delete operator.
-*/
+  Global placement delete operator.
+  */
 //inline void operator delete(void*, void*) throw()
 //	{ }
 
@@ -216,133 +216,133 @@ Global placement delete operator.
 //****************************************************************************************************
 
 /**
-@defgroup g711 Audio Codec - ITU-T Recomendation G711
-@{
-*/
+  @defgroup g711 Audio Codec - ITU-T Recomendation G711
+  @{
+  */
 
 /**
-@brief A class which implements ITU-T (formerly CCITT) Recomendation G711
-	   "Pulse Code Modulation (PCM) of Voice Frequencies"
+  @brief A class which implements ITU-T (formerly CCITT) Recomendation G711
+  "Pulse Code Modulation (PCM) of Voice Frequencies"
 
-This encodes and decodes uniform PCM values to/from 8 bit A-law and u-Law values.
+  This encodes and decodes uniform PCM values to/from 8 bit A-law and u-Law values.
 
-Note, the methods in this class use uniform PCM values which are of 16 bits precision,
-these are 'left justified' values corresponding to the 13 and 14 bit values described
-in G711.
+  Note, the methods in this class use uniform PCM values which are of 16 bits precision,
+  these are 'left justified' values corresponding to the 13 and 14 bit values described
+  in G711.
 
-@version 2006-05-20
-	- Changed code to use standard typedefs, e.g. replaced uint8 with uint8_t, and made use of size_t.
-*/
+  @version 2006-05-20
+  - Changed code to use standard typedefs, e.g. replaced uint8 with uint8_t, and made use of size_t.
+  */
 class G711
 {
-public:
-	IMPORT static uint8_t ALawEncode(int16_t pcm16);
-	IMPORT static int ALawDecode(uint8_t alaw);
-	IMPORT static uint8_t ULawEncode(int16_t pcm16);
-	IMPORT static int ULawDecode(uint8_t ulaw);
-	IMPORT static uint8_t ALawToULaw(uint8_t alaw);
-	IMPORT static uint8_t ULawToALaw(uint8_t ulaw);
-	IMPORT static unsigned ALawEncode(uint8_t* dst, int16_t* src, size_t srcSize);
-	IMPORT static unsigned ALawDecode(int16_t* dst, const uint8_t* src, size_t srcSize);
-	IMPORT static unsigned ULawEncode(uint8_t* dst, int16_t* src, size_t srcSize);
-	IMPORT static unsigned ULawDecode(int16_t* dst, const uint8_t* src, size_t srcSize);
-	IMPORT static unsigned ALawToULaw(uint8_t* dst, const uint8_t* src, size_t srcSize);
-	IMPORT static unsigned ULawToALaw(uint8_t* dst, const uint8_t* src, size_t srcSize);
+    public:
+        IMPORT static uint8_t ALawEncode(int16_t pcm16);
+        IMPORT static int ALawDecode(uint8_t alaw);
+        IMPORT static uint8_t ULawEncode(int16_t pcm16);
+        IMPORT static int ULawDecode(uint8_t ulaw);
+        IMPORT static uint8_t ALawToULaw(uint8_t alaw);
+        IMPORT static uint8_t ULawToALaw(uint8_t ulaw);
+        IMPORT static unsigned ALawEncode(uint8_t* dst, int16_t* src, size_t srcSize);
+        IMPORT static unsigned ALawDecode(int16_t* dst, const uint8_t* src, size_t srcSize);
+        IMPORT static unsigned ULawEncode(uint8_t* dst, int16_t* src, size_t srcSize);
+        IMPORT static unsigned ULawDecode(int16_t* dst, const uint8_t* src, size_t srcSize);
+        IMPORT static unsigned ALawToULaw(uint8_t* dst, const uint8_t* src, size_t srcSize);
+        IMPORT static unsigned ULawToALaw(uint8_t* dst, const uint8_t* src, size_t srcSize);
 };
 
 
 
 
 /**
-@defgroup g726 Audio Codec - ITU-T Recomendation G726
-@{
-*/
+  @defgroup g726 Audio Codec - ITU-T Recomendation G726
+  @{
+  */
 
 enum Law
 {
-	uLaw=0, 	/**< u law */
-	ALaw=1, 	/**< A law */
-	PCM16=2 	/**< 16 bit uniform PCM values. These are 'left justified' values
-					 corresponding to the 14 bit values in G726 Annex A. */
+    uLaw=0, 	/**< u law */
+    ALaw=1, 	/**< A law */
+    PCM16=2 	/**< 16 bit uniform PCM values. These are 'left justified' values
+                  corresponding to the 14 bit values in G726 Annex A. */
 };
 enum Rate
 {
-	Rate16kBits=2,	/**< 16k bits per second (2 bits per ADPCM sample) */
-	Rate24kBits=3,	/**< 24k bits per second (3 bits per ADPCM sample) */
-	Rate32kBits=4,	/**< 32k bits per second (4 bits per ADPCM sample) */
-	Rate40kBits=5	/**< 40k bits per second (5 bits per ADPCM sample) */
+    Rate16kBits=2,	/**< 16k bits per second (2 bits per ADPCM sample) */
+    Rate24kBits=3,	/**< 24k bits per second (3 bits per ADPCM sample) */
+    Rate32kBits=4,	/**< 32k bits per second (4 bits per ADPCM sample) */
+    Rate40kBits=5	/**< 40k bits per second (5 bits per ADPCM sample) */
 };
 
 
 
 /**
-@brief A class which implements ITU-T (formerly CCITT) Recomendation G726
-	   "40, 32, 24, 16 kbit/s Adaptive Differential Pulse Code Modulation (ADPCM)"
-G726 replaces recomendations G721 and G723.
+  @brief A class which implements ITU-T (formerly CCITT) Recomendation G726
+  "40, 32, 24, 16 kbit/s Adaptive Differential Pulse Code Modulation (ADPCM)"
+  G726 replaces recomendations G721 and G723.
 
 */
 class G726
 {
-public:
-	inline G726()
-		{
-		Reset();
-		}
-	IMPORT void Reset();
-	IMPORT void SetLaw(Law law);
-	IMPORT void SetRate(Rate rate);
-	IMPORT unsigned Encode(unsigned pcm);
-	IMPORT unsigned Decode(unsigned adpcm);
-	IMPORT unsigned Encode(void* dst, int dstOffset, const void* src, size_t srcSize);
-	IMPORT unsigned Decode(void* dst, const void* src, int srcOffset, unsigned srcSize);
-private:
-	void InputPCMFormatConversionAndDifferenceSignalComputation(unsigned S,int SE,int& D);
-	void AdaptiveQuantizer(int D,unsigned Y,unsigned& I);
-	void InverseAdaptiveQuantizer(unsigned I,unsigned Y,unsigned& DQ);
-	void QuantizerScaleFactorAdaptation1(unsigned AL,unsigned& Y);
-	void QuantizerScaleFactorAdaptation2(unsigned I,unsigned Y);
-	void AdaptationSpeedControl1(unsigned& AL);
-	void AdaptationSpeedControl2(unsigned I,unsigned y,unsigned TDP,unsigned TR);
-	void AdaptativePredictorAndReconstructedSignalCalculator1(int& SE,int& SEZ);
-	void AdaptativePredictorAndReconstructedSignalCalculator2(unsigned DQ,unsigned TR,int SE,int SEZ,int& SR,int& A2P);
-	void ToneAndTransitionDetector1(unsigned DQ,unsigned& TR);
-	void ToneAndTransitionDetector2(int A2P,unsigned TR,unsigned& TDP);
-	void OutputPCMFormatConversionAndSynchronousCodingAdjustment(int SR,int SE,unsigned Y,unsigned I,unsigned& SD);
-	void DifferenceSignalComputation(int SL,int SE,int& D);
-	void OutputLimiting(int SR,int& S0);
-	unsigned EncodeDecode(unsigned input,bool encode);
-private:
-	Law LAW;
-	Rate RATE;
-	// Persistant state for DELAY elements...
-	int A1;
-	int A2;
-	unsigned AP;
-	int Bn[6];
-	unsigned DML;
-	unsigned DMS;
-	unsigned DQn[6];
-	int PK1;
-	int PK2;
-	unsigned SR1;
-	unsigned SR2;
-	unsigned TD;
-	unsigned YL;
-	unsigned YU;
+    public:
+        inline G726()
+        {
+            Reset();
+        }
+        IMPORT void Reset();
+        IMPORT void SetLaw(Law law);
+        IMPORT void SetRate(Rate rate);
+        IMPORT unsigned Encode(unsigned pcm);
+        IMPORT unsigned Decode(unsigned adpcm);
+        IMPORT unsigned Encode(void* dst, int dstOffset, const void* src, size_t srcSize);
+        IMPORT unsigned Decode(void* dst, const void* src, int srcOffset, unsigned srcSize);
+    private:
+        void InputPCMFormatConversionAndDifferenceSignalComputation(unsigned S,int SE,int& D);
+        void AdaptiveQuantizer(int D,unsigned Y,unsigned& I);
+        void InverseAdaptiveQuantizer(unsigned I,unsigned Y,unsigned& DQ);
+        void QuantizerScaleFactorAdaptation1(unsigned AL,unsigned& Y);
+        void QuantizerScaleFactorAdaptation2(unsigned I,unsigned Y);
+        void AdaptationSpeedControl1(unsigned& AL);
+        void AdaptationSpeedControl2(unsigned I,unsigned y,unsigned TDP,unsigned TR);
+        void AdaptativePredictorAndReconstructedSignalCalculator1(int& SE,int& SEZ);
+        void AdaptativePredictorAndReconstructedSignalCalculator2(unsigned DQ,unsigned TR,int SE,int SEZ,int& SR,int& A2P);
+        void ToneAndTransitionDetector1(unsigned DQ,unsigned& TR);
+        void ToneAndTransitionDetector2(int A2P,unsigned TR,unsigned& TDP);
+        void OutputPCMFormatConversionAndSynchronousCodingAdjustment(int SR,int SE,unsigned Y,unsigned I,unsigned& SD);
+        void DifferenceSignalComputation(int SL,int SE,int& D);
+        void OutputLimiting(int SR,int& S0);
+        unsigned EncodeDecode(unsigned input,bool encode);
+    private:
+        Law LAW;
+        Rate RATE;
+        // Persistant state for DELAY elements...
+        int A1;
+        int A2;
+        unsigned AP;
+        int Bn[6];
+        unsigned DML;
+        unsigned DMS;
+        unsigned DQn[6];
+        int PK1;
+        int PK2;
+        unsigned SR1;
+        unsigned SR2;
+        unsigned TD;
+        unsigned YL;
+        unsigned YU;
 
-	friend class G726Test;
+        friend class G726Test;
 
 };
 
 /**
-When the source code is compiled with this macro defined, the code will reproduce
-bugs found in the G191 reference implementation of %G726. These bugs are also required
-so that the test sequences supplied in %G726 Appendix II produce the 'correct' results.
+  When the source code is compiled with this macro defined, the code will reproduce
+  bugs found in the G191 reference implementation of %G726. These bugs are also required
+  so that the test sequences supplied in %G726 Appendix II produce the 'correct' results.
 
-The bugs affect the G726::Decode functions when the coding is uLaw or ALaw.
+  The bugs affect the G726::Decode functions when the coding is uLaw or ALaw.
 
-@since 2005-02-13
-*/
+  @since 2005-02-13
+  */
 #define IMPLEMENT_G191_BUGS
 
 

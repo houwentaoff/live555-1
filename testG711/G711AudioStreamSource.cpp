@@ -1,18 +1,18 @@
 /**********
-This library is free software; you can redistribute it and/or modify it under
-the terms of the GNU Lesser General Public License as published by the
-Free Software Foundation; either version 2.1 of the License, or (at your
-option) any later version. (See <http://www.gnu.org/copyleft/lesser.html>.)
+  This library is free software; you can redistribute it and/or modify it under
+  the terms of the GNU Lesser General Public License as published by the
+  Free Software Foundation; either version 2.1 of the License, or (at your
+  option) any later version. (See <http://www.gnu.org/copyleft/lesser.html>.)
 
-This library is distributed in the hope that it will be useful, but WITHOUT
-ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
-more details.
+  This library is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+  more details.
 
-You should have received a copy of the GNU Lesser General Public License
-along with this library; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
-**********/
+  You should have received a copy of the GNU Lesser General Public License
+  along with this library; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
+ **********/
 // "liveMedia"
 // Copyright (c) 1996-2011 Live Networks, Inc.  All rights reserved.
 // A WAV audio file source
@@ -67,29 +67,29 @@ G711AudioStreamSource::G711AudioStreamSource(UsageEnvironment& env)
     fLastPlayTime(0),
     fPlayTimePerSample(0){
 
-    fNumChannels = 1;
-    fSamplingFrequency = 8000;
-    fBitsPerSample = 8;
+        fNumChannels = 1;
+        fSamplingFrequency = 8000;
+        fBitsPerSample = 8;
 
-    fPlayTimePerSample = 1e6/(double)fSamplingFrequency;
-    // Although PCM is a sample-based format, we group samples into
-    // 'frames' for efficient delivery to clients.  Set up our preferred
-    // frame size to be close to 20 ms, if possible, but always no greater
-    // than 1400 bytes (to ensure that it will fit in a single RTP packet)
-    unsigned maxSamplesPerFrame = (1400*8)/(fNumChannels*fBitsPerSample);
-    unsigned desiredSamplesPerFrame = (unsigned)(0.04*fSamplingFrequency);
-    unsigned samplesPerFrame = desiredSamplesPerFrame < maxSamplesPerFrame ? desiredSamplesPerFrame : maxSamplesPerFrame;
-    fPreferredFrameSize = (samplesPerFrame*fNumChannels*fBitsPerSample)/8;
+        fPlayTimePerSample = 1e6/(double)fSamplingFrequency;
+        // Although PCM is a sample-based format, we group samples into
+        // 'frames' for efficient delivery to clients.  Set up our preferred
+        // frame size to be close to 20 ms, if possible, but always no greater
+        // than 1400 bytes (to ensure that it will fit in a single RTP packet)
+        unsigned maxSamplesPerFrame = (1400*8)/(fNumChannels*fBitsPerSample);
+        unsigned desiredSamplesPerFrame = (unsigned)(0.04*fSamplingFrequency);
+        unsigned samplesPerFrame = desiredSamplesPerFrame < maxSamplesPerFrame ? desiredSamplesPerFrame : maxSamplesPerFrame;
+        fPreferredFrameSize = (samplesPerFrame*fNumChannels*fBitsPerSample)/8;
 
-    audioOpen();
+        audioOpen();
 #if 0
-    fp = NULL;
-    fp = fopen("test.g711", "r");
-    if(fp == NULL) {
-        printf("ERR : %s : %d\n", __FILE__, __LINE__);
-    }
+        fp = NULL;
+        fp = fopen("test.g711", "r");
+        if(fp == NULL) {
+            printf("ERR : %s : %d\n", __FILE__, __LINE__);
+        }
 #endif
-}
+    }
 
 G711AudioStreamSource::~G711AudioStreamSource() {
     audioClose();
