@@ -25,3 +25,8 @@ OutPacketBuffer::maxSize is increased to 2,000,000 bytes which makes live555 wor
 
 Added -DALLOW_RTSP_SERVER_PORT_REUSE=1 to force reusing existing port (e.g. when restarting the proxy). Please ensure
 you never run multiple instances of the proxy on the same port!
+
+### G711 audio submodule
+
+Added G711 alsa 
+`make -C  g711 && make -C testG711`
